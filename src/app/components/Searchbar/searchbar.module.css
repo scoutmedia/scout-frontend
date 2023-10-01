@@ -2,17 +2,16 @@
     display: flex;
     justify-content: center;
     min-width: 650px;
-    margin-top: 3em;
+    max-width: 650px;
+    margin: 4em auto;
     font-family: var(--font-montserrat);
 }
 
 #searchBar {
-    width: 100%;
+    width: 93%;
     padding-left: 2.5em;
     
 }
-
-
 .searchbarInput {
     border-radius: .5em;
     padding: .5em 1em;
@@ -22,7 +21,7 @@
     font-weight: 500;
     outline: none;
     border: 1px solid rgba(0, 0, 0, .3);
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .searchbarInput::placeholder {
@@ -30,6 +29,42 @@
 }
 
 .searchbarInput:focus {
-    text-transform: capitalize;
     border: 1px solid #59D9B5;
+}
+
+#resultsContainer {
+    display: grid;
+    margin: 0 auto;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill,185px);
+    grid-template-rows: repeat(auto-fill,315px);
+    width: 93%;
+    min-width: 0;
+    padding: 2em;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    width: 185px;
+    min-height: 315px;
+
+}
+
+.loadedImage {
+    border-radius: .3em;
+    overflow: hidden;
+    position: relative;
+    width: 185px;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.title {
+    padding: .5em 0;
+    font-size: .9em;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

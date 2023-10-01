@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Montserrat, Open_Sans } from 'next/font/google'
+import { Inter, Manrope, Montserrat, Open_Sans } from 'next/font/google'
 import Sidebar from './components/Sidebar/sidebar'
 
 const opensans = Open_Sans({
@@ -17,7 +17,7 @@ const montserrat =  Montserrat({
 
 export const metadata: Metadata = {
   title: 'Scout',
-  description: 'Automate media delivery',
+  description: 'Automated media delivery',
 }
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.variable}>
-        {children}
+        {children}  
         </body>
     </html>
   )

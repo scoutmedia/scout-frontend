@@ -38,3 +38,7 @@
 .navLinks li:hover {
     color: #8214FF;
 }
+
+.isActive {
+    color: #8214FF;
+}
