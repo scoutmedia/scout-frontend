@@ -1,9 +1,10 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Searchbar from "../Searchbar/searchbar";
 import { Result } from "@/types";
 import Image from "next/image";
-import { posterImage } from "@/util/helper";
+import { downloadIcon } from "@/images";
+import { formatRequestTitle, posterImage } from "@/util/helper";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
@@ -11,42 +12,48 @@ import { Toaster } from "react-hot-toast";
 export default function Search(){
     const [results , setResults] = useState<Result[]>([]);
 
-    const sendData = async (value:string) => {
-        const response = await fetch(`api/torrent?q=${value}` , {
-           method: "POST",
-           body: JSON.stringify({data: value})
-        })
-        if(!response.ok) {
-            toast.error(`Failed to request ${value}`, {position: "top-right"})
-        }
-        toast.success("Request sent 🍿 " , {position: "top-right"})
+    const sendData = async (value:Result) => {
+         const response = await fetch(`api/torrent?q=${value}` , {
+            method: "POST",
+            body: JSON.stringify({
+                data: formatRequestTitle(value.title , value.release_date)
+            })
+         })
+         if(!response.ok) {
+             toast.error(`Failed to request ${value.title} `, {position: "top-right"})
+             return
+         }
+         toast.success("Request sent 🍿 " , {position: "top-right"})
    }
     return (
         <>
         <div><Toaster/></div>
-        <div className="w-full pl-64 pt-7 mx-auto flex flex-col">
+        <div className="w-full pl-64 pt-7 mx-auto flex flex-col bg-primary">
             <Searchbar setResults = {setResults}/>
             <section className=" pt-6 w-10/12 mx-auto mt-10">
                  <div className="grid grid-cols-searchResults gap-x-3 justify-between text-white">
                     {results.sort((a:Result , b:Result) => {
                         return b.popularity - a.popularity
-                    }).map(result => {
+                    }).map((result:Result) => {
                         return (
-                            <div className="w-auto flex flex-col relative" key={result.id} onClick={() => {sendData(result.title)}}>
-                                <div className="w-auto h-cover overflow-hidden relative border-none rounded">
+                            <div className=" animate-zoomIn  w-auto flex flex-col relative" key={result.id}>
+                                <div className="w-auto h-cover overflow-hidden relative border-none shadow-lg rounded-md">
+                                <div className=" cursor-pointer  right-0 mr-2 mt-3 z-20 w-[28px] h-[28px] absolute rounded-lg" onClick={() => {sendData(result)}}>
+                                    <Image src={downloadIcon} alt="download icon" fill priority={true} style={{objectFit: "cover"}} quality={100} />
+                                </div>
                                 <Image
                                  src={posterImage(result.poster_path)}
-                                 alt={result.title}
+                                 alt={result.original_title = undefined ? result.original_title : result.original_title}
                                  fill
                                  priority={true}
-                                 style={{objectFit:'contain'}}
+                                 style={{objectFit:'cover'}}
                                  quality={100}
                                  sizes="(min-width: 60em) 24vw,
                                  (min-width: 28em) 45vw,
                                  100vw"
                                 />
                                 </div>
-                                <span className="pt-2 pb-5">{result.title}</span>
+                                <span className="pt-2 pb-5 text-sm text-textPrimary font-medium">{result.title  == undefined ? result.name : result.title}</span>
                             </div>
                         )
                     })}

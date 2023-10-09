@@ -6,6 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     screens: {
      '2xs': { min: '300px' },
@@ -16,7 +17,16 @@ const config: Config = {
       xl: { min: '1159px' }, // Desktop wide.
       '2xl': { min: '1359px' } // Desktop widescreen.
     },
+    animation: {
+      zoomIn:  "zoomIn .4s"
+    },
     extend: {
+      keyframes : {
+        zoomIn : {
+          '0%' : {transform: "scale(0)"},
+          '100%': {transform: "scale(1)"}
+        }
+      }, 
       width: {
         searchPoster: "185px" 
       },
@@ -27,8 +37,9 @@ const config: Config = {
         searchResults: "repeat(auto-fill,185px);"
       },
       colors: {
-        primary: "#06051C",
-        secondary:"#070626",
+        primary: "#F0F1F2",
+        secondary:"#E7EBF4",
+        textPrimary: "#516170",
         secondaryHover: "#2D2E49",
         secondaryText: "#E1E4E9",
         searchbarFocus: "#59D9B5"
