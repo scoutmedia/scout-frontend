@@ -1,14 +1,8 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Manrope, Montserrat, Open_Sans } from 'next/font/google'
+import {Montserrat} from 'next/font/google'
 
-
-const opensans = Open_Sans({
-  subsets: ["latin"],
-  weight: ["300" , "400" , "500"],
-  variable: "--font-opensans"
-})
 
 const montserrat =  Montserrat({
   subsets: ["latin"],
@@ -18,8 +12,11 @@ const montserrat =  Montserrat({
 
 export const metadata: Metadata = {
   openGraph : {
-    title: "Scout ",
-    description: "Next Generation Automated Media Delivery"
+    type: "website",
+    url: "https://scout-frontend.vercel.app/",
+    title: "Scout",
+    description: "Next Generation Automated Media Delivery",
+    siteName: "Scout Media"
   },
   title: "Automated Media Delivery",
   description: "Next Generation Automated Media Delivery"
