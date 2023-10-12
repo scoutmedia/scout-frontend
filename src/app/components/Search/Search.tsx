@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Searchbar from "../Searchbar/searchbar";
 import { Result } from "@/types";
 import Image from "next/image";
-import { downloadIcon } from "@/images";
+import { downloadIcon, placeHolderPoster } from "@/images";
 import { formatRequestTitle, posterImage } from "@/util/helper";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
@@ -44,7 +44,7 @@ export default function Search(){
                                     <Image src={downloadIcon} alt="download icon" fill priority={true} style={{objectFit: "cover"}} quality={100} />
                                 </div>
                                 <Image
-                                 src={posterImage(result.poster_path)}
+                                 src={result.poster_path != null ?  posterImage(result.poster_path) : placeHolderPoster}
                                  alt={result.original_title = undefined ? result.original_title : result.original_title}
                                  fill
                                  priority={true}
