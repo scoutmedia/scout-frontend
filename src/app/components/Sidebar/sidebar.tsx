@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { lightModeIcon , homeIcon , searchIcon , menuIcon } from '@/images';
+import {homeIcon , searchIcon , menuIcon } from '@/images';
 
 export default function Sidebar() {
     const [active , setIsActive] = useState<boolean>(false);

@@ -15,7 +15,6 @@ export async function GET(req:NextRequest , res:NextResponse){
     const promises = responses.map((response) => response.json())
     const promiseData:ResponseData[] =   await Promise.all(promises)
 
-    console.log(...promiseData[0].results)
     return NextResponse.json({success: 200  , data: [...promiseData[0].results , ...promiseData[1].results]})
 }   
 
