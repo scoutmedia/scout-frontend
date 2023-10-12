@@ -16,6 +16,9 @@
   }
 }
 
+html, body {
+  overflow-x: hidden;
+}
 
 body {
   background-color: #F0F1F2;

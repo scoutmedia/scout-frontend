@@ -30,16 +30,16 @@ export default function Search(){
     return (
         <>
         <div><Toaster/></div>
-        <div className="md:pl-64 w-full  pt-7 mx-auto flex flex-col bg-primary">
+        <div className="lg:pl-64 w-full  pt-7 mx-auto flex flex-col bg-primary">
             <Searchbar setResults = {setResults}/>
-            <section className="md:w-10/12  w-4/5 pt-6 mx-auto mt-10">
-                 <div className=" md:grid-cols-searchResults md:gap-x-3 grid  grid-cols-sm justify-between text-white">
+            <section className="w-10/12  xs:w-4/5 pt-6 mx-auto mt-10">
+                 <div className=" grid-cols-searchResults gap-x-3 grid  xs:grid-cols-sm justify-between text-white">
                     {results.sort((a:Result , b:Result) => {
                         return b.popularity - a.popularity
                     }).map((result:Result) => {
                         return (
                             <div className=" animate-zoomIn  w-auto flex flex-col relative" key={result.id}>
-                                <div className=" md:h-cover w-auto  h-sm  overflow-hidden relative border-none shadow-lg rounded-md">
+                                <div className=" h-cover w-auto  xs:h-sm  overflow-hidden relative border-none shadow-lg rounded-md">
                                 <div className=" cursor-pointer  right-0 mr-2 mt-3 z-20 w-[28px] h-[28px] absolute rounded-lg" onClick={() => {sendData(result)}}>
                                     <Image src={downloadIcon} alt="download icon" fill priority={true} style={{objectFit: "cover"}} quality={100} />
                                 </div>

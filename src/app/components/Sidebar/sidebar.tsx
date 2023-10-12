@@ -21,7 +21,7 @@ export default function Sidebar() {
                 </div>
             </div>
         </aside>
-        <div className={active ? 'md:hidden z-40  flex flex-col absolute  bottom-16 left-8 shadow-lg  bg-secondaryHover w-[40px] h-[100px] rounded-md' : "hidden" }>
+        <div className={active ? 'lg:hidden md:hidden z-40  flex flex-col absolute  bottom-16 left-8 shadow-lg  bg-secondaryHover w-[40px] h-[100px] rounded-md' : "hidden" }>
                 <div className={active ? 'md:hidden z-40 flex flex-col absolute w-full h-full justify-around items-center' : ""}>
                 <Link href={"/"}>
                 <Image 
@@ -45,7 +45,7 @@ export default function Sidebar() {
                 </Link>
                 </div>
               </div>
-              <div className=' md:hidden z-40  bottom-8   left-8 fixed  shadow-lg bg-secondaryHover w-[40px] h-[40px] flex justify-center rounded-md' onClick={() => setIsActive(prevActive => !prevActive)}>
+              <div className=' lg:hidden md:hidden z-40  bottom-8   left-8 fixed  shadow-lg bg-secondaryHover w-[40px] h-[40px] flex justify-center rounded-md' onClick={() => setIsActive(prevActive => !prevActive)}>
                 <Image 
                 alt='menu icon' 
                 src={menuIcon} 
