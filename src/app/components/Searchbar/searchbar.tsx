@@ -33,7 +33,7 @@ export default function Searchbar({setResults}:SearchBarProps){
         <div className=' xs:w-9/12 xs:ml-9 w-10/12  pt-6 mx-auto bg-primary flex'>
             <div className= 'w-[185px]  xs:w-full mr-16'>
                 <label className='text-sm tracking-wide pl-1 text-textPrimary font-medium'>Search</label>
-                <input className= 'shadow-md mt-1 focus:border-2 capitalize focus:border-searchbarFocus border-gray-200 border-2 rounded-md pl-4 py-[.5em] w-full text- outline-none font-medium' type='text' onChange={(e) => {setInput(e.target.value)}}/>
+                <input className= 'shadow-sm mt-1 focus:border-2 capitalize focus:border-searchbarFocus border-gray-200 border-2 rounded-md pl-4 py-[.5em] w-full text- outline-none font-medium' type='text' onChange={(e) => {setInput(e.target.value)}}/>
             </div>
         </div>
         </>
