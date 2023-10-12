@@ -1,11 +1,14 @@
 "use client"
 import Link from 'next/link';
 import Image from 'next/image';
-import { lightModeIcon } from '@/images';
+import { useState } from 'react';
+import { lightModeIcon , homeIcon , searchIcon , menuIcon } from '@/images';
 
 export default function Sidebar() {
+    const [active , setIsActive] = useState<boolean>(false);
     return (
-        <aside className='h-screen fixed top-0 left-0 w-48 border-solid border-secondary border-1 shadow-lg rounded-r-md' >
+        <>
+        <aside className='xs:hidden sm:hidden h-screen fixed top-0 left-0 w-48 border-solid border-secondary border-1 shadow-lg rounded-r-md' >
             <div className='bg-secondary h-full'>
                 <header className=' w-1/2 mx-auto pt-8 text-2xl text-black font-bold tracking-wide pb-7'>
                     <h1>Scout</h1>
@@ -17,18 +20,41 @@ export default function Sidebar() {
                         </ul>
                 </div>
             </div>
-            <div className=' absolute bottom-5 left-5 w-11/12 pt-7 text-white flex align-bottom'>
-                    <Image 
-                        alt='lightmode' 
-                        src={lightModeIcon} 
-                        width={32} 
-                        height={32}
-                        priority={true}
-                        quality={100}
-                        style={{cursor: "pointer"}}
-                        onClick={() => {alert("change mode")}}
-                        />
-                </div>
         </aside>
+        <div className={active ? 'md:hidden z-40  flex flex-col absolute  bottom-16 left-8 shadow-lg  bg-secondaryHover w-[40px] h-[100px] rounded-md' : "hidden" }>
+                <div className={active ? 'md:hidden z-40 flex flex-col absolute w-full h-full justify-around items-center' : ""}>
+                <Link href={"/"}>
+                <Image 
+                alt='menu icon' 
+                src={homeIcon}  
+                width={22}
+                height={22}
+                priority={true}
+                quality={100}
+                />
+                </Link> 
+                <Link href={"/search"}>
+                <Image 
+                alt='menu icon' 
+                src={searchIcon} 
+                width={23}
+                height={23}
+                priority={true}
+                quality={100}
+                />
+                </Link>
+                </div>
+              </div>
+              <div className=' md:hidden z-40  bottom-8   left-8 fixed  shadow-lg bg-secondaryHover w-[40px] h-[40px] flex justify-center rounded-md' onClick={() => setIsActive(prevActive => !prevActive)}>
+                <Image 
+                alt='menu icon' 
+                src={menuIcon} 
+                width={25}
+                height={25}
+                priority={true}
+                quality={100}
+                />
+              </div>
+        </>            
     )
 }

@@ -1,13 +1,10 @@
-import Searchbar from './components/Searchbar/searchbar'
-import Navbar from './components/Sidebar/sidebar'
-import styles from './page.module.css'
+import Sidebar from './components/Sidebar/sidebar'
 
-export default async function Home() {  
+export default async function Home() { 
   return (
     <>
-      <Navbar/>
+    <Sidebar/>
     <section className='w-full max-h-screen flex bg-primary'>
-      d
     </section>
     </>
   )
