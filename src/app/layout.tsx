@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Scout ",
     description: "Next Generation Automated Media Delivery"
   },
-  title: "Scout | Media Delivery",
+  title: "Automated Media Delivery",
   description: "Next Generation Automated Media Delivery"
 }
 
