@@ -18,11 +18,11 @@ const montserrat =  Montserrat({
 
 export const metadata: Metadata = {
   openGraph : {
-    title: "ScoutMedia",
-    description: "Next generation Automated Media Delivery"
+    title: "Scout ",
+    description: "Next Generation Automated Media Delivery"
   },
-  title: "ScoutMedia",
-  description: "Next generation Automated Media Delivery"
+  title: "Scout | Media Delivery",
+  description: "Next Generation Automated Media Delivery"
 }
 
 
