@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Manrope, Montserrat, Open_Sans } from 'next/font/google'
@@ -16,8 +17,12 @@ const montserrat =  Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Scout',
-  description: 'Automated media delivery',
+  openGraph : {
+    title: "Scout ",
+    description: "Next Generation Automated Media Delivery"
+  },
+  title: "Scout | Media Delivery",
+  description: "Next Generation Automated Media Delivery"
 }
 
 
@@ -27,10 +32,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={montserrat.variable}>
         {children}  
         </body>
     </html>
+    </ClerkProvider>
+
   )
 }
