@@ -3,7 +3,6 @@ export type ResponseData = {
     results: Result[]
 }
 
-
 export type Result = {
     adult:false
     backdrop_path: string
@@ -20,4 +19,16 @@ export type Result = {
     vote_average:number
     vote_count:number
 }
+
+
+export type Keyword = {
+    id: number,
+    name: string
+}
+
+export enum MediaType {
+    Movie = "movie",
+    TV = "tv",
+}
+
 

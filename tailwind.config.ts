@@ -29,12 +29,11 @@ const config: Config = {
         },
       }, 
       height: {
-        sm: "200px",
+        sm: "165px",
         cover: "265px"
       },
       gridTemplateColumns: {
-        sm : "repeat(auto-fill,130px)",
-        searchResults: "repeat(auto-fill,185px);"
+        sm : "repeat(auto-fill,110px)",
       },
       // gridTemplateRows : {
       //   sm: "repeat(auto-fill , 225px)"
