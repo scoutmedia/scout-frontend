@@ -21,8 +21,8 @@ export default function Sidebar() {
                 </div>
             </div>
         </aside>
-        <div className={active ? 'lg:hidden md:hidden z-40  flex flex-col absolute  bottom-16 left-8 shadow-lg  bg-secondaryHover w-[40px] h-[100px] rounded-md' : "hidden" }>
-                <div className={active ? 'md:hidden z-40 flex flex-col absolute w-full h-full justify-around items-center' : ""}>
+        <div className={active ? 'lg:hidden md:hidden z-40  flex flex-col fixed  bottom-16 left-8 shadow-lg  bg-secondaryHover w-[40px] h-[100px] rounded-md' : "hidden" }>
+                <div className={active ? 'md:hidden z-40 flex flex-col  w-full h-full justify-around items-center' : ""}>
                 <Link href={"/"}>
                 <Image 
                 alt='menu icon' 
